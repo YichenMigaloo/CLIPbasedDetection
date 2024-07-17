@@ -10,7 +10,7 @@
 
 wget -c https://zenodo.org/records/10066460/files/synthbuster.zip?download=1 -O synthbuster.zip
 wget -c https://www.grip.unina.it/download/prog/DMimageDetection/real_RAISE_1k.zip -O real_RAISE_1k.zip
-md5sum -c synthbuster_checksums.md5 
+md5sum -c CLIPbasedDetection/data/synthbuster_checksums.md5 
 echo "unzipping ..."
 unzip -q -n synthbuster.zip
 unzip -q -n -d synthbuster real_RAISE_1k.zip
