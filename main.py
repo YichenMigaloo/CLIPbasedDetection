@@ -31,7 +31,7 @@ from utils.fusion import apply_fusion
 from networks import create_architecture, load_weights
 
 
-def get_config(model_name, weights_dir='CLIPbasedDetection/weights'):
+def get_config(model_name, weights_dir='content/CLIPbasedDetection/weights'):
     with open(os.path.join(weights_dir, model_name, 'config.yaml')) as fid:
         data = yaml.load(fid, Loader=yaml.FullLoader)
     model_path = os.path.join(weights_dir, model_name, data['weights_file'])
