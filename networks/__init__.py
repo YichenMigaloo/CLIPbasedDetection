@@ -45,16 +45,8 @@ def count_parameters(model):
 
 def load_weights(model, model_path):
     from torch import load
+    print(model_path)
     #dat = load(model_path, map_location='cpu')
-    try:
-        # Load the model state_dict
-        state_dict = torch.load(model_path, map_location='cpu')
-        model.load_state_dict(state_dict)
-        print("Model loaded successfully.")
-        
-    except Exception as e:
-        print(f"Error loading the model: {e}")
-        return None
     
     dat = load(model_path, map_location='cuda:0')
     if 'model' in dat:
