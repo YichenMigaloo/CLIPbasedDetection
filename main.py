@@ -38,7 +38,7 @@ def get_config(model_name, weights_dir='content/CLIPbasedDetection/weights'):
     return data['model_name'], model_path, data['arch'], data['norm_type'], data['patch_size']
 
 
-def runnig_tests(input_csv, weights_dir, models_list, device, batch_size = 1):
+def runnig_tests(input_csv, weights_dir='content/CLIPbasedDetection/weights', models_list, device, batch_size = 1):
     table = pandas.read_csv(input_csv)[['filename',]]
     rootdataset = os.path.dirname(os.path.abspath(input_csv))
     
@@ -132,7 +132,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--in_csv"     , '-i', type=str, help="The path of the input csv file with the list of images")
     parser.add_argument("--out_csv"    , '-o', type=str, help="The path of the output csv file", default="./results.csv")
-    parser.add_argument("--weights_dir", '-w', type=str, help="The directory to the networks weights", default="./weights")
+    parser.add_argument("--weights_dir", '-w', type=str, help="The directory to the networks weights", default="content/CLIPbasedDetection/weights")
     parser.add_argument("--models"     , '-m', type=str, help="List of models to test", default='clipdet_latent10k_plus,Corvi2023')
     parser.add_argument("--fusion"     , '-f', type=str, help="Fusion function", default='soft_or_prob')
     parser.add_argument("--device"     , '-d', type=str, help="Torch device", default='cuda:0')
