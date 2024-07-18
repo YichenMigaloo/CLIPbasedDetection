@@ -48,7 +48,7 @@ def load_weights(model, model_path):
     print(model_path)
     #dat = load(model_path, map_location='cpu')
     
-    dat = load(model_path, map_location='cuda:0')
+    dat = load(model_path)
     if 'model' in dat:
         if ('module._conv_stem.weight' in dat['model']) or \
            ('module.fc.fc1.weight' in dat['model']) or \
