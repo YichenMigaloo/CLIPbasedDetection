@@ -38,6 +38,7 @@ def create_architecture(name_arch, pretrained=False, num_classes=1):
         model = OpenClipLinear(num_classes=num_classes, pretrain=name_arch[19:], normalize=True, next_to_last=True)
     else:
         assert False
+    print(model.summary())
     return model
 
 def count_parameters(model):
@@ -47,7 +48,6 @@ def load_weights(model, model_path):
     from torch import load
     print(model_path)
     #dat = load(model_path, map_location='cpu')
-    
     dat = load(model_path)
     if 'model' in dat:
         if ('module._conv_stem.weight' in dat['model']) or \
