@@ -38,7 +38,7 @@ def get_config(model_name, weights_dir='content/CLIPbasedDetection/weights'):
     return data['model_name'], model_path, data['arch'], data['norm_type'], data['patch_size']
 
 
-def runnig_tests(input_csv, weights_dir='content/CLIPbasedDetection/weights', models_list, device, batch_size = 1):
+def runnig_tests(input_csv, weights_dir, models_list, device, batch_size = 1):
     table = pandas.read_csv(input_csv)[['filename',]]
     rootdataset = os.path.dirname(os.path.abspath(input_csv))
     
